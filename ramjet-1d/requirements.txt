@@ -1,0 +1,27 @@
+# Ce projet ne tient pas en bibliotheque standard : le solveur 1D integre une
+# equation differentielle raide pres du blocage thermique, et le balayage en
+# Mach du cycle 0D porte sur des milliers de points.
+#
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# Le cloisonnement est strict, et verifie par les tests :
+#
+#   numpy        thermo, cycle 0D, conduit, reconstruction des profils.
+#                TOUTE la physique tourne avec lui seul.
+#   scipy        uniquement dans solver1d.py — « solve_ivp » et ses evenements
+#                terminaux, qui sont la facon propre de s'arreter a M = 1 — et
+#                dans les tests, ou « brentq » inverse les formes fermees.
+#   matplotlib   uniquement dans plots.py. Le solveur et toute la suite de
+#                tests physiques tournent sans lui.
+#
+# Deux consequences a tenir, et toutes deux testees :
+#
+#   - « config.py » et « fuels.py » s'importent SANS NumPy. Ce sont les deux
+#     modules qu'un script d'optimisation exterieur voudra appeler en boucle,
+#     et une dependance de calcul matriciel n'y a rien a faire.
+#   - « main.py --validate » tourne sur une machine sans affichage.
+
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7

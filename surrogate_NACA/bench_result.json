@@ -1,0 +1,10 @@
+{
+  "n_angles": 17,
+  "n_profiles": 5,
+  "xfoil_ms_per_polar": 1360.4858616003185,
+  "mlp_ms_per_polar": 0.25986295220063765,
+  "speedup": 5235.397543509398,
+  "mlp_batch_points": 100000,
+  "mlp_batch_s": 2.2597778199997265,
+  "xfoil_failed_points": 2
+}

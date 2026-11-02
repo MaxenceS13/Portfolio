@@ -1,0 +1,14 @@
+# Figures, rapports, profils exportes.
+sorties/
+
+# Environnement virtuel du projet (numpy / scipy / matplotlib).
+.venv/
+venv/
+
+# Caches Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Fichiers systeme
+.DS_Store
